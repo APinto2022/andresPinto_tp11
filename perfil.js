@@ -1,25 +1,22 @@
 const prompt = require("prompt-sync")({ sigint: true });
 /*---Este es el TP 11 del bootcamp de Fundación Formar ---*/
 
+console.log("* * *Bienvenido al sistema de gestión de permisos de usuario* * *")
+let perfil=prompt(console.log("indique su perfil de usuario:  "));
 
-
-let perfil = {
-  Pepa: "Administrador",
-  Pepe: "Asistente",
-};
-console.log("***Bienvenido al sistema de gestión***");
-perfil = prompt(
-  "Los usuarios habilitados del sistema son Pepa y Pepe. Por favor escriba su nombre  "
-);
-
-switch (perfil) {
-  case "Pepa":
-    console.log("Usuario identificado, Bienvenida Pepa, eres la Administradora");
+switch (perfil.toLowerCase()) {
+  case "administrador":
+    console.log("Usted tiene todos los privilegios de uso del sistema");
     break;
-  case "Pepe":
-    console.log("Usuario identificado, Bienvenido Pepe, tienes los permisos de Usuario del sistema");
+case "asistente":
+  console.log("Usted sólo tiene permisos de registrar,modificar y consultar datos");
+  break;
     break;
-   default:
-    console.log("Bienvenido al sistema, usted no se encuentra registrado, su perfil será de 'invitado'")
+  case "invitado":
+    console.log("Usted sólo tiene permisos de consultar datos")
+  case " ":
+    console.log("Debe especificar el perfil del usuario");
+    break;
+  default:console.log("Debe especificar un perfil válido");
     break;
 }
